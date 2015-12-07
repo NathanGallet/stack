@@ -5,9 +5,14 @@ public class lifo extends stack {
 	 * Instancier notre stack en mode lifo
 	 */
 	public lifo(int taille){
+		if(taille == 0){
+			throw new IllegalStateException("Votre stack doit avoir une taille non nul !");
+		}
+		else{
 		this.taille = taille;
 		this.compteur = 0;
 		stack = new int[taille];
+		}
 	}
 
 	/**
