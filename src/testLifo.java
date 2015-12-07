@@ -2,12 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class test {
+public class testLifo {
 
 	@Test(expected = IllegalStateException.class)
 	public void testGetSize() {
 		stack stack = new lifo(10);
-		stack stack1 = new lifo(0);
+		//stack stack1 = new lifo(0);
 		
 		if(stack.getSize() != 10){
 			fail("taille incompatible");
