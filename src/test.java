@@ -22,8 +22,12 @@ public class test {
 		int valNul = 0;
 		int val = 3;
 		
-		stack.push(valNul);
 		stack.push(valNeg);
+		if(stack.head() != valNeg){
+			fail("La valeur devrait être valNeg !");
+		}
+		
+		stack.push(valNul);
 		stack.push(valPos);
 		stack.push(val);
 	}
@@ -41,12 +45,11 @@ public class test {
 		stack.push(valNeg);
 		stack.push(valPos);
 		
-		stack.pop();
-		stack1.pop();
-		
+		stack.pop();		
 		if(stack.getNumberOfElement()==3){
 			fail("le nombre d'élèment devrait être 2 !");
 		}
+		stack1.pop();
 	}
 
 	@Test
@@ -56,10 +59,18 @@ public class test {
 		int val = 3;
 		
 		stack stack = new lifo(3);
-		stack.push(val);
-		stack.push(valNeg);
-		stack.push(valPos);
 		
+		stack.push(val);
+		if(stack.getNumberOfElement() != 1){
+			fail("Le nombre d'élément devrait être différent !");
+		}
+		
+		stack.push(valNeg);
+		if(stack.getNumberOfElement() != 2){
+			fail("Le nombre d'élément devrait être différent !");
+		}
+		
+		stack.push(valPos);
 		if(stack.getNumberOfElement() != 3){
 			fail("Le nombre d'élément devrait être différent !");
 		}
@@ -73,13 +84,22 @@ public class test {
 		
 		stack stack1 = new lifo(3);
 		stack stack = new lifo(3);
-		stack.push(val);
-		stack.push(valNeg);
-		stack.push(valPos);
 		
+		stack.push(val);
+		if(stack.isFull() == true){
+			fail("La stack n'est pas vide !");
+		}
+		
+		stack.push(valNeg);
+		if(stack.isFull() == true){
+			fail("La stack n'est pas vide !");
+		}
+		
+		stack.push(valPos);		
 		if(stack.isFull() == false){
 			fail("La stack est pleine !");
 		}
+		
 		if(stack1.isFull() == true){
 			fail("La stack est vide !");
 		}
@@ -101,12 +121,19 @@ public class test {
 		stack.push(valPos);
 		
 		stack.pop();
+		if(stack.isEmpty() == true){
+			fail("La stack n'est pas vide !");
+		}
+		
 		stack.pop();
+		if(stack.isEmpty() == true){
+			fail("La stack n'est pas vide !");
+		}
+		
 		stack.pop();
 		if(stack.isEmpty() == false){
 			fail("La stack est vide !");
-		}
-		
+		}	
 	}
 
 
@@ -117,13 +144,20 @@ public class test {
 		int val = 3;
 		
 		stack stack = new lifo(3);
-		stack.push(val);
-		stack.push(valNeg);
-		stack.push(valPos);
 		
-		if(stack.head() != valPos){
-			fail("La dernière valeur devrait être valPos !");
+		stack.push(val);
+		if(stack.head() != val){
+			fail("La dernière valeur devrait être val !");
 		}
 		
+		stack.push(valNeg);
+		if(stack.head() != valNeg){
+			fail("La dernière valeur devrait être valNeg !");
+		}	
+		
+		stack.push(valPos);
+		if(stack.head() != valPos){
+			fail("La dernière valeur devrait être valPos !");
+		}	
 	}
 }

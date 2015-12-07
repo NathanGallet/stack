@@ -2,6 +2,7 @@
 public abstract class stack {
 	
 	protected int stack[];
+	protected int stack1[];
 	protected int taille;
 	protected int compteur;
 	
@@ -44,7 +45,23 @@ public abstract class stack {
 		}
 	}
 	
-	abstract void push(int x) throws IllegalStateException;
+	/**
+	 * Ajouter un élément à la stack
+	 */
+	void push(int x) throws IllegalStateException {
+		//vérifier que la stack n'est pas pleine
+		
+		if(this.isFull()){
+			throw new IllegalStateException("La stack est pleine !");
+		}
+		else{
+		//On ajoute l'élément en haut de la stack et on incrément compteur
+			
+			this.stack[this.compteur] = x;
+			this.compteur += 1;
+		}
+	}
+	
 	abstract void pop() throws IllegalStateException;
 	abstract int head() throws IllegalStateException;
 }

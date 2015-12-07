@@ -4,7 +4,7 @@ public class lifo extends stack {
 	/**
 	 * Instancier notre stack en mode lifo
 	 */
-	public lifo(int taille){
+	public lifo(int taille) throws IllegalStateException{
 		if(taille == 0){
 			throw new IllegalStateException("Votre stack doit avoir une taille non nul !");
 		}
@@ -13,25 +13,7 @@ public class lifo extends stack {
 		this.compteur = 0;
 		stack = new int[taille];
 		}
-	}
-
-	/**
-	 * Ajouter un élément à la stack
-	 */
-	@Override
-	void push(int x) throws IllegalStateException {
-		//vérifier que la stack n'est pas pleine
-		
-		if(this.isFull()){
-			throw new IllegalStateException("La stack est pleine !");
-		}
-		else{
-		//On ajoute l'élément en haut de la stack et on incrément compteur
-			
-			this.stack[this.compteur] = x;
-			this.compteur += 1;
-		}
-	}
+	}	
 
 	/**
 	 * Retirer un élément de la stack 
@@ -39,7 +21,6 @@ public class lifo extends stack {
 	@Override
 	void pop() throws IllegalStateException {
 		//vérifier que la stack n'est pas pleine
-		
 		if(this.isEmpty()){
 			throw new IllegalStateException("La stack est vide !");
 		}
