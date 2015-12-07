@@ -2,7 +2,7 @@
 public class lifo extends stack {
 	
 	/**
-	 * Constructeur qui permet d'instancier notre stack en mode lifo
+	 * Instancier notre stack en mode lifo
 	 */
 	public lifo(int taille){
 		this.taille = taille;
@@ -11,11 +11,11 @@ public class lifo extends stack {
 	}
 
 	/**
-	 * Permet d'ajouter un élément à la stack
+	 * Ajouter un élément à la stack
 	 */
 	@Override
 	void push(int x) throws IllegalStateException {
-		//il faut d'abord vérifier que la stack n'est pas pleine
+		//vérifier que la stack n'est pas pleine
 		
 		if(this.isFull()){
 			throw new IllegalStateException("La stack est pleine !");
@@ -29,18 +29,34 @@ public class lifo extends stack {
 	}
 
 	/**
-	 * Permet de retirer un élément de la stack 
+	 * Retirer un élément de la stack 
 	 */
 	@Override
 	void pop() throws IllegalStateException {
-		// TODO Auto-generated method stub
+		//vérifier que la stack n'est pas pleine
 		
+		if(this.isEmpty()){
+			throw new IllegalStateException("La stack est vide !");
+		}
+		else{
+			this.stack[this.compteur -1] = 0;
+			this.compteur -= 1;
+		}
 	}
-
+	
+	/**
+	 * 
+	 */
 	@Override
 	int head() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return 0;
+		//vérifier que la stack n'est pas pleine
+	
+		if(this.isEmpty()){
+			throw new IllegalStateException("La stack est vide !");
+		}
+		else{
+			return this.stack[this.compteur -1];
+		}
 	}
 
 }
