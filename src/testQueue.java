@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class testQueue {
 
-	@Test(expected = IllegalStateException.class)
+	@Test
 	public void testPop() {
 		int valPos = 500;
 		int valNeg = -40;
@@ -18,11 +18,7 @@ public class testQueue {
 		
 		stack.pop();		
 		if(stack.head()!=valNeg){
-			fail("le nombre d'élèment devrait être valNeg !");
-		}
-		stack.pop();		
-		if(stack.head()!=valPos){
-			fail("le nombre d'élèment devrait être valPos !");
+			fail("le nombre d'élèment devrait être val !");
 		}
 	}
 
