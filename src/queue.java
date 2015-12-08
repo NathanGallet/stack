@@ -2,8 +2,8 @@
 public class queue extends stack{
 
 	public queue(int taille) throws IllegalStateException{
-		if(taille == 0){
-			throw new IllegalStateException("Votre stack doit avoir une taille non nul !");
+		if(taille > 0){
+			throw new IllegalStateException("Votre stack doit avoir une taille positive !");
 		}
 		else{
 			this.taille = taille;
